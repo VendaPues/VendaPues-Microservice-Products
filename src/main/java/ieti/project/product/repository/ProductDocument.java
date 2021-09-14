@@ -13,9 +13,9 @@ import java.util.Date;
 @NoArgsConstructor
 @Getter
 public class ProductDocument {
-    @Id
-     int id;
-    @Indexed(unique = true)
+     @Id
+     String id;
+     @Indexed(unique = true)
      String productName;
      String description;
      Double price;

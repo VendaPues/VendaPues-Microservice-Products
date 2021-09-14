@@ -15,8 +15,6 @@ public class ProductController {
     @Autowired
     IProductService productService;
 
-
-
     @GetMapping
     public ResponseEntity<?> all(){
         try {
@@ -24,7 +22,6 @@ public class ProductController {
         }catch (Exception e){
             return new ResponseEntity<>("Not Found", HttpStatus.NOT_FOUND);
         }
-
     }
 
     @GetMapping("/{id}")
@@ -32,7 +29,7 @@ public class ProductController {
         try {
             return new ResponseEntity<>(productService.findById(id), HttpStatus.CREATED);
         }catch (Exception e){
-            return new ResponseEntity<>("Product with id: "+ id + "not found.", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Product with id: "+ id + " not found.", HttpStatus.NOT_FOUND);
         }
 
     }
@@ -41,7 +38,7 @@ public class ProductController {
     public ResponseEntity<?> create (@RequestBody  ProductDto productDto){
         try {
             productService.create(productDto);
-            return new ResponseEntity<>("Product "+ productDto.getProductName()+"create", HttpStatus.CREATED);
+            return new ResponseEntity<>("Product "+ productDto.getProductName()+" create", HttpStatus.CREATED);
         }catch (Exception e) {
             return new ResponseEntity<>("Product nor created", HttpStatus.CONFLICT);
         }
@@ -53,7 +50,7 @@ public class ProductController {
             productService.update(productDto, id);
             return new ResponseEntity<>("Product " + productDto.getId() + " update.", HttpStatus.ACCEPTED);
         } catch (Exception e) {
-            return new ResponseEntity<>("Product with id " + productDto.getId()+ " not found.", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Product with id " + id + " not found.", HttpStatus.NOT_FOUND);
         }
     }
 
@@ -63,9 +60,9 @@ public class ProductController {
             productService.findById(id);
             productService.deleteById(id);
 
-            return new ResponseEntity<>("Product with id" + id + " delete.", HttpStatus.ACCEPTED);
+            return new ResponseEntity<>("Product with id " + id + " delete.", HttpStatus.ACCEPTED);
         } catch (Exception e) {
-            return new ResponseEntity<>("Product with id" + id + " not found.", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Product with id " + id + " not found.", HttpStatus.NOT_FOUND);
         }
 
     }

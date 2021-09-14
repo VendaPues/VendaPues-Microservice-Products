@@ -5,18 +5,17 @@ import ieti.project.product.repository.ProductDocument;
 import ieti.project.product.repository.ProductRepository;
 import ieti.project.product.service.IProductService;
 import ieti.project.product.service.ProductServiceException;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
+@NoArgsConstructor
 @Service
 public class ProductServiceImpl implements IProductService<ProductDocument> {
 
-    private final ProductRepository productRepository;
-
-    public ProductServiceImpl(@Autowired ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
+    @Autowired
+    private ProductRepository productRepository;
 
     @Override
     public ProductDocument create(ProductDto productDto) throws ProductServiceException {
