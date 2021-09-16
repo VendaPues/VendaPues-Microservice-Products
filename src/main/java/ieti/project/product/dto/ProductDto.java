@@ -11,12 +11,11 @@ import java.io.Serializable;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode
-
 public class ProductDto extends BaseEntity implements Serializable {
 
     private String productName;
     private String description;
     private Double price;
+    private Double salesPrice;
     private int stock;
 }

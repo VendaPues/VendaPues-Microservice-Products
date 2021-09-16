@@ -13,12 +13,14 @@ public class Product extends BaseEntity  {
     private String productName;
     private String description;
     private Double price;
+    private Double salesPrice;
     private int stock;
 
 
     public Product(ProductDto productDto) {
         this.productName = productDto.getProductName();
         this.description = productDto.getDescription();
+        this.salesPrice = productDto.getSalesPrice();
         this.price = productDto.getPrice();
         this.stock = productDto.getStock();
     }
@@ -27,6 +29,7 @@ public class Product extends BaseEntity  {
         this.productName = productDto.getProductName();
         this.description = productDto.getDescription();
         this.price = productDto.getPrice();
+        this.salesPrice = productDto.getSalesPrice();
         this.stock = productDto.getStock();
     }
 }

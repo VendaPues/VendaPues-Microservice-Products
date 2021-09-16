@@ -19,6 +19,7 @@ public class ProductDocument {
      String productName;
      String description;
      Double price;
+     Double salesPrice;
      int stock;
      Date createdAt;
 
@@ -28,6 +29,7 @@ public class ProductDocument {
         this.productName = productDto.getProductName();
         this.description = productDto.getDescription();
         this.price = productDto.getPrice();
+        this.salesPrice = productDto.getSalesPrice();
         this.stock = productDto.getStock();
         this.createdAt = new Date();
     }
@@ -36,6 +38,7 @@ public class ProductDocument {
         productName = productDto.getProductName();
         description = productDto.getDescription();
         price = productDto.getPrice();
+        salesPrice = productDto.getSalesPrice();
         stock = productDto.getStock();
     }
 }

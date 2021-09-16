@@ -2,6 +2,7 @@ package ieti.project.product.controller;
 
 import ieti.project.product.dto.ProductDto;
 import ieti.project.product.service.IProductService;
+import ieti.project.product.service.ProductServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ public class ProductController {
     public ResponseEntity<?> all(){
         try {
             return new ResponseEntity<>(productService.all(), HttpStatus.ACCEPTED);
-        }catch (Exception e){
+        }catch (ProductServiceException e){
             return new ResponseEntity<>("Not Found", HttpStatus.NOT_FOUND);
         }
     }
@@ -28,7 +29,7 @@ public class ProductController {
     public ResponseEntity<?> findById (@PathVariable String id){
         try {
             return new ResponseEntity<>(productService.findById(id), HttpStatus.CREATED);
-        }catch (Exception e){
+        }catch (ProductServiceException e){
             return new ResponseEntity<>("Product with id: "+ id + " not found.", HttpStatus.NOT_FOUND);
         }
 
@@ -39,8 +40,8 @@ public class ProductController {
         try {
             productService.create(productDto);
             return new ResponseEntity<>("Product "+ productDto.getProductName()+" create", HttpStatus.CREATED);
-        }catch (Exception e) {
-            return new ResponseEntity<>("Product nor created", HttpStatus.CONFLICT);
+        }catch (ProductServiceException e) {
+            return new ResponseEntity<>("Product not created", HttpStatus.CONFLICT);
         }
     }
 
@@ -48,8 +49,8 @@ public class ProductController {
     public ResponseEntity<?> update(@PathVariable String id, @RequestBody ProductDto productDto){
         try {
             productService.update(productDto, id);
-            return new ResponseEntity<>("Product " + productDto.getId() + " update.", HttpStatus.ACCEPTED);
-        } catch (Exception e) {
+            return new ResponseEntity<>("Product " + id + " update.", HttpStatus.ACCEPTED);
+        } catch (ProductServiceException e) {
             return new ResponseEntity<>("Product with id " + id + " not found.", HttpStatus.NOT_FOUND);
         }
     }
@@ -61,7 +62,7 @@ public class ProductController {
             productService.deleteById(id);
 
             return new ResponseEntity<>("Product with id " + id + " delete.", HttpStatus.ACCEPTED);
-        } catch (Exception e) {
+        } catch (ProductServiceException e) {
             return new ResponseEntity<>("Product with id " + id + " not found.", HttpStatus.NOT_FOUND);
         }
 
