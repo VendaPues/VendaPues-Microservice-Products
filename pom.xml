@@ -65,9 +65,6 @@
         </dependency>
 
     </dependencies>
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 	<build>
 		<plugins>
 			<plugin>
