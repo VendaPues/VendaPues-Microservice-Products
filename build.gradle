@@ -1,0 +1,38 @@
+plugins {
+	id 'org.springframework.boot' version '2.5.5'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb:2.5.4'
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive:2.5.4'
+	implementation 'org.springframework.boot:spring-boot-starter-web:2.5.4'
+	compileOnly 'org.projectlombok:lombok:1.18.20'
+	implementation group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
+	annotationProcessor 'org.projectlombok:lombok:1.18.20'
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.0'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.0'
+	testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.5.4'
+	testImplementation group: 'org.junit.vintage', name: 'junit-vintage-engine', version: '5.8.1'
+	testImplementation 'io.projectreactor:reactor-test:3.4.10'
+	testImplementation group: 'junit', name: 'junit', version: '4.4'
+}
+
+test {
+	useJUnitPlatform()
+}

@@ -2,6 +2,7 @@ package ieti.project.product.model;
 
 import lombok.*;
 
+
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.GeneratedValue;
