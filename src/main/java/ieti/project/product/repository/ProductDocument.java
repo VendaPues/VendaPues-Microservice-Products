@@ -3,6 +3,7 @@ package ieti.project.product.repository;
 import ieti.project.product.dto.ProductDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,6 +13,7 @@ import java.util.Date;
 @Document
 @NoArgsConstructor
 @Getter
+@Setter
 public class ProductDocument {
      @Id
      String id;
