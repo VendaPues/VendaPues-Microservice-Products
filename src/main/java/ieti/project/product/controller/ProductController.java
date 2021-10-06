@@ -1,6 +1,7 @@
 package ieti.project.product.controller;
 
 import ieti.project.product.dto.ProductDto;
+import ieti.project.product.exception.ProductRequestException;
 import ieti.project.product.service.IProductService;
 import ieti.project.product.service.ProductServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class ProductController {
         try {
             return new ResponseEntity<>(productService.all(), HttpStatus.ACCEPTED);
         }catch (ProductServiceException e){
-            return new ResponseEntity<>("Not Found", HttpStatus.NOT_FOUND);
+            throw new ProductRequestException("Product not found");
         }
     }
 
