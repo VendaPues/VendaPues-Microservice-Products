@@ -15,15 +15,17 @@ import java.util.Date;
 @Getter
 @Setter
 public class ProductDocument {
-     @Id
-     String id;
-     @Indexed(unique = true)
-     String productName;
-     String description;
-     Double price;
-     Double salesPrice;
-     int stock;
-     Date createdAt;
+    @Id
+    String id;
+    @Indexed(unique = true)
+    String productName;
+    String description;
+    Double price;
+    Double salesPrice;
+    int stock;
+    Double tax;
+    String imageUrl;
+    Date createdAt;
 
 
     public ProductDocument(ProductDto productDto) {
@@ -33,14 +35,18 @@ public class ProductDocument {
         this.price = productDto.getPrice();
         this.salesPrice = productDto.getSalesPrice();
         this.stock = productDto.getStock();
+        this.tax = productDto.getTax();
+        this.imageUrl = productDto.getImageUrl();
         this.createdAt = new Date();
     }
 
-    public void update(ProductDto productDto){
+    public void update(ProductDto productDto) {
         productName = productDto.getProductName();
         description = productDto.getDescription();
         price = productDto.getPrice();
         salesPrice = productDto.getSalesPrice();
+        tax = productDto.getTax();
+        imageUrl = productDto.getImageUrl();
         stock = productDto.getStock();
     }
 }

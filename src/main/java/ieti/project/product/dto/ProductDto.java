@@ -18,4 +18,7 @@ public class ProductDto extends BaseEntity implements Serializable {
     private Double price;
     private Double salesPrice;
     private int stock;
+    private Double tax;
+    private String imageUrl;
+
 }

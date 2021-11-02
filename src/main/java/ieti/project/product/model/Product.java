@@ -15,6 +15,8 @@ public class Product extends BaseEntity  {
     private Double price;
     private Double salesPrice;
     private int stock;
+    private Double tax;
+    private String imageUrl;
 
 
     public Product(ProductDto productDto) {
@@ -23,6 +25,9 @@ public class Product extends BaseEntity  {
         this.salesPrice = productDto.getSalesPrice();
         this.price = productDto.getPrice();
         this.stock = productDto.getStock();
+        this.tax = productDto.getTax();
+        this.imageUrl = productDto.getImageUrl();
+
     }
 
     public void setProductDto(ProductDto productDto) {
@@ -31,5 +36,7 @@ public class Product extends BaseEntity  {
         this.price = productDto.getPrice();
         this.salesPrice = productDto.getSalesPrice();
         this.stock = productDto.getStock();
+        this.tax = productDto.getTax();
+        this.imageUrl = productDto.getImageUrl();
     }
 }
