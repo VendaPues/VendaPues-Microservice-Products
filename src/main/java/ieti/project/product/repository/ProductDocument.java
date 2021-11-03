@@ -10,11 +10,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import javax.persistence.Id;
 import java.util.Date;
 
-@Document
+@Document(collection = "products")
 @NoArgsConstructor
 @Getter
 @Setter
+
 public class ProductDocument {
+<<<<<<< HEAD
     @Id
     String id;
     @Indexed(unique = true)
@@ -26,6 +28,19 @@ public class ProductDocument {
     Double tax;
     String imageUrl;
     Date createdAt;
+=======
+     @Id
+     String id;
+     @Indexed(unique = true)
+     String productName;
+     String description;
+     Double price;
+     Double salesPrice;
+     int stock;
+     Double tax;
+     String imageUrl;
+     Date createdAt;
+>>>>>>> 921406b2f7e3e1e0e5e60f7a9e2b04b503483291
 
 
     public ProductDocument(ProductDto productDto) {
@@ -48,5 +63,7 @@ public class ProductDocument {
         tax = productDto.getTax();
         imageUrl = productDto.getImageUrl();
         stock = productDto.getStock();
+        tax = productDto.getTax();
+        imageUrl = productDto.getImageUrl();
     }
 }

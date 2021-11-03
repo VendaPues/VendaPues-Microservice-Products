@@ -26,7 +26,9 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.vendapues:components:1.0.0-release'
+	implementation 'org.vendapues:components:1.0.4-release'
+	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.0.2'
+	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.0.1'
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb:2.5.4'
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive:2.5.4'
 	implementation 'org.springframework.boot:spring-boot-starter-web:2.5.4'

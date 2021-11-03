@@ -11,6 +11,8 @@ import java.io.Serializable;
 @Getter
 @Setter
 @ToString
+
+@Builder
 public class ProductDto extends BaseEntity implements Serializable {
 
     private String productName;
@@ -21,4 +23,9 @@ public class ProductDto extends BaseEntity implements Serializable {
     private Double tax;
     private String imageUrl;
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 921406b2f7e3e1e0e5e60f7a9e2b04b503483291
 }
