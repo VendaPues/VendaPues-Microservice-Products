@@ -68,4 +68,14 @@ public class ProductController {
 
     }
 
+    @PutMapping("insertProduct")
+    public ResponseEntity<?> insertProductInList(@RequestParam int idProduct, @RequestParam int idUser){
+        try{
+            productService.insertProductInList(idProduct, idUser);
+            return new ResponseEntity<>("Product with id " + idProduct + " insert into."+ idUser, HttpStatus.ACCEPTED);
+        }catch(Exception e) {
+            return new ResponseEntity<>("Product or user not found", HttpStatus.NOT_FOUND);
+        }
+    }
+
 }

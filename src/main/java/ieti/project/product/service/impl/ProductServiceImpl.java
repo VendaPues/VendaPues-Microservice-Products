@@ -17,6 +17,9 @@ public class ProductServiceImpl implements IProductService<ProductDocument> {
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
+    private UserDocument
+
     @Override
     public ProductDocument create(ProductDto productDto) throws ProductServiceException {
         ProductDocument document = new ProductDocument(productDto);
@@ -69,6 +72,15 @@ public class ProductServiceImpl implements IProductService<ProductDocument> {
             return productRepository.save(result);
         } catch (Exception e) {
             throw new ProductServiceException(e.getMessage());
+        }
+    }
+
+    @Override
+    public boolean insertProductInList(int idProduct, int idUser) {
+        try{
+
+        }catch (Exception e){
+
         }
     }
 

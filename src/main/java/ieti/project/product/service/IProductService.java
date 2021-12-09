@@ -15,4 +15,6 @@ public interface IProductService<T> {
     boolean deleteById(String id) throws ProductServiceException;
 
     ProductDocument update(ProductDto productDto, String id) throws ProductServiceException;
+
+    boolean insertProductInList(int idProduct, int idUser);
 }
